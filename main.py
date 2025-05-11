@@ -1,13 +1,13 @@
 import os
 from telebot import TeleBot
+# from dotenv import load_dotenv  # только для локальной разработки
+
+# load_dotenv() # Загружаем переменные окружения из .env файла (только для локальной разработки)
 
 TOKEN = os.getenv('TOKEN')  # Берем токен из переменных окружения
 if not TOKEN:
     raise ValueError("Не задан TOKEN для бота")
     
-bot = TeleBot(TOKEN)
-
-TOKEN = '7305693655:AAFiR1KlGvIyHho-b-VMZFcqx1pgjByq7Uw'
 bot = TeleBot(TOKEN)
 
 hi_words_list = [ 'привет', 'здрасте', 'здарова', 'hi', ]
