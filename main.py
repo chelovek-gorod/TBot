@@ -46,7 +46,12 @@ def get_answer(message):
     else : return 'К сожалению, я тебя не понимаю!'
 
 
-    
+def run_bot():
+    bot.polling(none_stop=True)
+
+@app.route('/')
+def home():
+    return "Telegram Bot is running!", 200
 
 @bot.message_handler()
 def get_message(message):
@@ -54,4 +59,8 @@ def get_message(message):
     bot.send_message(message.chat.id, answer)
    
 if __name__ == '__main__':
-    bot.polling(none_stop=True)
+    # bot.polling(none_stop=True)
+    # Запускаем бота в отдельном потоке
+    Thread(target=run_bot).start()
+    # Запускаем Flask-сервер на порту 10000
+    app.run(host='0.0.0.0', port=10000)
