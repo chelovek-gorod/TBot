@@ -1,3 +1,7 @@
+from flask import Flask # чит
+from threading import Thread # чит
+app = Flask(__name__) # чит
+
 import os
 from telebot import TeleBot
 # from dotenv import load_dotenv  # только для локальной разработки
